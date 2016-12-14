@@ -52,8 +52,8 @@ public class MainPageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     public void addNote(View view){
-        Intent intent = new Intent(this, NewNoteActivity.class);
-        startActivity(intent);
-
+      //  Intent intent = new Intent(this, NewNoteActivity.class);
+        //startActivity(intent);
+        setContentView(R.layout.activity_new_note);
     }
 }
