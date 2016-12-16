@@ -40,4 +40,11 @@
         android:id="@+id/goToNewNote"
         app:layout_anchorGravity="bottom|right"
         android:layout_gravity="top|left" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="509dp"
+        android:id="@+id/listOfNotes"
+        />
+
 </android.support.design.widget.CoordinatorLayout>

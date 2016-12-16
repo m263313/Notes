@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="2a50c84c7fccd916b4e605a0667032e3cb280d22">
+        sha1="75bed6ce12acf223301b625d343c9b088b3e263d">
         <dex dex="D:\Work\AS\Notes\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_0ed13e5a49f14d0a0fdd6da31fddf1e3441e3ecf\classes.dex" />
     </item>
     <item
@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="72ff47efd09cfcfef7c360bbc5aa81f043ed4389">
+        sha1="53b6c27f63573f5ed1ef367fef5cbb0f94e62698">
         <dex dex="D:\Work\AS\Notes\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_bbc2f9fcfbe856fbf5eae99e53dba83a89e55e1b\classes.dex" />
     </item>
     <item
@@ -93,21 +93,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Work\AS\Notes\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="D:\Work\AS\Notes\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_079c6d94e9b014bc81ba8ecfd6b0e61096d42bf4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="D:\Work\AS\Notes\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
         <dex dex="D:\Work\AS\Notes\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_428f1083a2ea138c658b7eba56cecf02dce4a69c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Work\AS\Notes\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\Work\AS\Notes\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_079c6d94e9b014bc81ba8ecfd6b0e61096d42bf4\classes.dex" />
     </item>
     <item
         is-multidex="true"

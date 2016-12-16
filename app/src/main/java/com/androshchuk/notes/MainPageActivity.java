@@ -27,13 +27,13 @@ public class MainPageActivity extends AppCompatActivity {
 
         dbHelper=new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put("notes_title", "Title");
-        cv.put("notes_text", "NoteText");
-        cv.put("notes_date",Calendar.getInstance().toString() );
-        cv.put("notes_theme","Nothing");
-        long rowID = db.insert("notes", null, cv);
-        Log.d(LOG_TAG, "row inserted, ID = " + rowID);
+//        ContentValues cv = new ContentValues();
+//        cv.put("notes_title", "Title");
+//        cv.put("notes_text", "NoteText");
+//        cv.put("notes_date",Calendar.getInstance().toString() );
+//        cv.put("notes_theme","Nothing");
+      //  long rowID = db.insert("notes", null, cv);
+      //  Log.d(LOG_TAG, "row inserted, ID = " + rowID);
         Cursor c = db.query("notes", null, null, null, null, null, null);
         if (c.moveToFirst()) {
         int idColIndex = c.getColumnIndex("id");
@@ -42,10 +42,11 @@ public class MainPageActivity extends AppCompatActivity {
         Log.d(LOG_TAG, (Integer.toString(c.getInt(idColIndex))));
         do {
             // получаем значения по номерам столбцов и пишем все в лог
-            Log.d(LOG_TAG,
-                    "ID = " + c.getInt(idColIndex) +
-                            ", name = " + c.getString(nameColIndex) +
-                            ", title = " + c.getString(titleColIndex));
+//            Log.d(LOG_TAG,
+//                    "ID = " + c.getInt(idColIndex) +
+//                            ", name = " + c.getString(nameColIndex) +
+//                            ", title = " + c.getString(titleColIndex));
+            
             // переход на следующую строку
             // а если следующей нет (текущая - последняя), то false - выходим из цикла
         } while (c.moveToNext());
