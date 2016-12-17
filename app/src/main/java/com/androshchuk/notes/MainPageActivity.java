@@ -13,8 +13,14 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
 public class MainPageActivity extends AppCompatActivity {
     DBHelper dbHelper;
     final String LOG_TAG = "myLogs";
@@ -24,8 +30,16 @@ public class MainPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ListView listView = (ListView)findViewById(R.id.listOfNotes);
+        final List<String> arrayOfNotes = new ArrayList<String>();
+        final ArrayAdapter<String> adapter;
+        adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, arrayOfNotes);
+        listView.setAdapter(adapter);
 
         dbHelper=new DBHelper(this);
+
+
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 //        ContentValues cv = new ContentValues();
 //        cv.put("notes_title", "Title");
@@ -41,6 +55,8 @@ public class MainPageActivity extends AppCompatActivity {
         int titleColIndex = c.getColumnIndex("notes_title");
         Log.d(LOG_TAG, (Integer.toString(c.getInt(idColIndex))));
         do {
+            arrayOfNotes.add(0, c.getString(titleColIndex));
+            adapter.notifyDataSetChanged();
             // получаем значения по номерам столбцов и пишем все в лог
 //            Log.d(LOG_TAG,
 //                    "ID = " + c.getInt(idColIndex) +

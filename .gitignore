@@ -50,3 +50,4 @@ Temporary Items
 .gradle/2.14.1/taskArtifacts/fileSnapshots.bin
 .gradle/
 .gradle/2.14.1/taskArtifacts/taskArtifacts.bin
+build/intermediates/dex-cache/cache.xml

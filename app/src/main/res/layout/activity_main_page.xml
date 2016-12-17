@@ -7,22 +7,40 @@
     android:fitsSystemWindows="true"
     tools:context="com.androshchuk.notes.MainPageActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
+
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize"
+            android:id="@+id/toolbar"/>
+            <!--app:popupTheme="x"  -->
 
-    </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main_page"
-        android:id="@+id/include2" />
+        <ListView
+            android:layout_width="match_parent"
+            android:id="@+id/listOfNotes"
+            android:layout_height="487dp"
+            android:layout_weight="0.89" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:onClick="addNote"
+
+            android:id="@+id/goToNewNote"
+            app:layout_anchorGravity="bottom|right"
+            android:layout_gravity="top|left" />
+
+    </LinearLayout>
 
     <!--<android.support.design.widget.FloatingActionButton-->
         <!--android:id="@+id/fab"-->
@@ -31,20 +49,5 @@
         <!--android:layout_gravity="bottom|end"-->
         <!--android:layout_margin="@dimen/fab_margin"-->
         <!--app:srcCompat="@android:drawable/ic_dialog_email" />-->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+"
-        android:onClick="addNote"
-        app:layout_anchor="@+id/include2"
-        android:id="@+id/goToNewNote"
-        app:layout_anchorGravity="bottom|right"
-        android:layout_gravity="top|left" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="509dp"
-        android:id="@+id/listOfNotes"
-        />
 
 </android.support.design.widget.CoordinatorLayout>
