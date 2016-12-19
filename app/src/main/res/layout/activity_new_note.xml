@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
@@ -19,14 +20,26 @@
         android:text="Your note"
         android:ems="10"
         android:id="@+id/note"
-        android:layout_weight="0.99" />
+        android:layout_weight="0.89" />
 
-    <Button
-        android:text="ADD"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="74dp"
         android:layout_height="wrap_content"
-        android:id="@+id/addNoteButton"
+        android:clickable="true"
         android:onClick="addNoteDatabase"
-        />
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_menu_save"
+        android:id="@+id/addNoteButton"
+        android:layout_weight="0.16"
+        app:backgroundTint="?attr/actionModeSplitBackground"
+        app:rippleColor="?attr/colorBackgroundFloating" />
+
+    <!--<Button-->
+        <!--android:text="ADD"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/addNoteButton"-->
+        <!--android:onClick="addNoteDatabase"-->
+        <!--/>-->
 
 </LinearLayout>

@@ -30,17 +30,34 @@
             android:layout_height="487dp"
             android:layout_weight="0.89" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:onClick="addNote"
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="+"-->
+            <!--android:onClick="addNote"-->
 
-            android:id="@+id/goToNewNote"
-            app:layout_anchorGravity="bottom|right"
-            android:layout_gravity="top|left" />
+            <!--android:id="@+id/floatingActionButton2"-->
+            <!--app:layout_anchorGravity="bottom|right"-->
+            <!--android:layout_gravity="top|left" />-->
 
     </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="62dp"
+            android:layout_height="77dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_input_add"
+            android:id="@+id/goToNewNote"
+             android:onClick="addNote"
+            android:layout_row="31"
+            android:layout_column="20"
+            app:backgroundTint="?attr/actionModeSplitBackground" />
+    </GridLayout>
 
     <!--<android.support.design.widget.FloatingActionButton-->
         <!--android:id="@+id/fab"-->

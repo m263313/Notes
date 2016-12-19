@@ -8,16 +8,32 @@
 
         <TextView
             android:text="TextView"
-            android:layout_width="275dp"
-            android:layout_height="69dp"
-            android:id="@+id/mainTitleNote" />
+            android:layout_width="202dp"
+            android:layout_height="match_parent"
+            android:id="@+id/mainTitleNote"
+            android:layout_weight="0.95" />
 
-        <TextView
-            android:text="TextView"
+        <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mainButton"
-            android:layout_weight="4.96" />
+            android:layout_height="match_parent"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_edit"
+            android:id="@+id/floatingActionButton3"
+            android:layout_weight="0.12"
+            app:backgroundTint="?attr/actionModeSplitBackground"
+            app:rippleColor="?attr/colorBackgroundFloating" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_delete"
+            android:id="@+id/floatingActionButton2"
+            android:layout_weight="0.23"
+            app:backgroundTint="?attr/actionModeSplitBackground"
+            app:rippleColor="@android:color/holo_red_dark" />
 
         <!--<android.support.design.widget.FloatingActionButton-->
             <!--android:layout_width="wrap_content"-->
