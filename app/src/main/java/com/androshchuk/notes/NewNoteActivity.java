@@ -17,7 +17,7 @@ import static com.androshchuk.notes.R.id.note;
 import static com.androshchuk.notes.R.id.noteTitle;
 
 public class NewNoteActivity extends Activity {
-    DBHelper dbHelper;
+    DataBase dbHelper;
     final String LOG_TAG = "myLogs";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,9 @@ public class NewNoteActivity extends Activity {
     }
     public void addNoteDatabase(View view){
 
-        dbHelper=new DBHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        dbHelper=new DataBase(this);
+        dbHelper.open();
+      //  SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
         // get data from inputs
      //   String name = note.getText().toString();
@@ -43,13 +44,14 @@ public class NewNoteActivity extends Activity {
         String allTheText = editable.toString().trim();
 
         cv.put("notes_title",allTheText);
-        edit = (EditText) findViewById(R.id.noteTitle);
+        edit = (EditText) findViewById(R.id.note);
         editable = edit.getText();
-        allTheText = editable.toString().trim();
-        cv.put("notes_text", allTheText);
+       String allText = editable.toString().trim();
+        cv.put("notes_text", allText);
         cv.put("notes_date", Calendar.getInstance().toString() );
         cv.put("notes_theme","Nothing");
-        long rowID = db.insert("notes", null, cv);
+       // long rowID = db.insert("notes", null, cv);
+        dbHelper.addRec(allTheText,allText);
         Intent intent = new Intent(this,  MainPageActivity.class);
         startActivity(intent);
 
