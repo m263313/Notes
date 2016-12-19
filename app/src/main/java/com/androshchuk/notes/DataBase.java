@@ -77,7 +77,8 @@ public class DataBase  {
     }
     // удалить запись из DB_TABLE
     public void delRec(long id) {
-        DB.delete(TABLE_NOTES, KEY_NOTES_ID + " = " + id, null);
+      int count =  DB.delete(TABLE_NOTES, KEY_NOTES_ID + " = " + id, null);
+        Log.d(LOG_TAG,"Delete rows = "+count);
     }
     public Cursor getRec(long id){
         //)true, Table, from, where, null, null, null, null, null)

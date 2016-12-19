@@ -58,7 +58,7 @@ public class MainPageActivity extends AppCompatActivity {
 
         int nameColIndex = c.getColumnIndex("notes_text");
         int titleColIndex = c.getColumnIndex("notes_title");
-        Log.d(LOG_TAG, (Integer.toString(c.getInt(idColIndex))));
+       // Log.d(LOG_TAG, (Integer.toString(c.getInt(idColIndex))));
         do {
             Log.d(LOG_TAG,c.getInt(idColIndex)+" id of element");
             listOfIndex.add(c.getInt(idColIndex));
@@ -97,11 +97,12 @@ public class MainPageActivity extends AppCompatActivity {
                 //TextView textView = (TextView) itemClicked;
                 Intent intent = new Intent(getApplicationContext(), EditNoteActivity.class);
 
-                   intent.putExtra("myId",-listOfIndex.get(position)+listOfIndex.size()+1);
+                   intent.putExtra("myId",
+                           listOfIndex.get(listOfIndex.size()-position-1) );
 
                 Log.d(LOG_TAG,listOfIndex.size()+" Size");
                 Log.d(LOG_TAG,position+" Position");
-                Log.d(LOG_TAG,listOfIndex.get((int)id)+" Data that goes to next activity");
+                Log.d(LOG_TAG,listOfIndex.get(listOfIndex.size()-position-1)+" Data that goes to next activity");
                     startActivity(intent);
 
             }

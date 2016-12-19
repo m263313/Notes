@@ -45,4 +45,13 @@ public class EditNoteActivity extends AppCompatActivity {
         dbHelper.updateRec(myID,editTitle.getText().toString().trim(),editText.getText().toString().trim());
         startActivity(intent);
     }
+    public void deleteNoteDataBase(View view){
+        Intent intent = new Intent(this,  MainPageActivity.class);
+
+        Log.d(LOG_TAG,"Delete from id"+myID);
+        dbHelper.delRec(myID);
+
+        startActivity(intent);
+    }
+
 }

@@ -19,7 +19,7 @@
             android:clickable="true"
             app:fabSize="mini"
             app:srcCompat="@android:drawable/ic_menu_edit"
-            android:id="@+id/floatingActionButton3"
+            android:id="@+id/mainEditButton"
             android:layout_weight="0.12"
             app:backgroundTint="?attr/actionModeSplitBackground"
             app:rippleColor="?attr/colorBackgroundFloating" />
@@ -30,7 +30,7 @@
             android:clickable="true"
             app:fabSize="mini"
             app:srcCompat="@android:drawable/ic_menu_delete"
-            android:id="@+id/floatingActionButton2"
+            android:id="@+id/mainDeleteButton"
             android:layout_weight="0.23"
             app:backgroundTint="?attr/actionModeSplitBackground"
             app:rippleColor="@android:color/holo_red_dark" />
