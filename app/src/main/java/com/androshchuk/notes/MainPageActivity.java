@@ -23,11 +23,14 @@ import java.util.Calendar;
 import java.util.List;
 
 public class MainPageActivity extends AppCompatActivity {
+
     DataBase dbHelper;
     final String LOG_TAG = "myLogs";
     ArrayList<Integer> listOfIndex;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(LOG_TAG,"version "+DataBase.DATABASE_VERSION);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -43,27 +46,19 @@ public class MainPageActivity extends AppCompatActivity {
 
 
         dbHelper.open();
-//        ContentValues cv = new ContentValues();
-//        cv.put("notes_title", "Title");
-//        cv.put("notes_text", "NoteText");
-//        cv.put("notes_date",Calendar.getInstance().toString() );
-//        cv.put("notes_theme","Nothing");
-      //  long rowID = db.insert("notes", null, cv);
-      //  Log.d(LOG_TAG, "row inserted, ID = " + rowID);
        Cursor c= dbHelper.getAllData();
-       // Cursor c = db.query("notes", null, null, null, null, null, null);
         if (c.moveToFirst()) {
 
-        int idColIndex = c.getColumnIndex("id");
-
-        int nameColIndex = c.getColumnIndex("notes_text");
-        int titleColIndex = c.getColumnIndex("notes_title");
+        int idColIndex = c.getColumnIndex(DataBase.KEY_NOTES_ID);
+        int themeColIndex = c.getColumnIndex(DataBase.KEY_NOTES_THEME);
+        int textColIndex = c.getColumnIndex(DataBase.KEY_NOTES_TEXT);
+        int titleColIndex = c.getColumnIndex(DataBase.KEY_NOTES_TITLE);
        // Log.d(LOG_TAG, (Integer.toString(c.getInt(idColIndex))));
         do {
-            Log.d(LOG_TAG,c.getInt(idColIndex)+" id of element");
+           // Log.d(LOG_TAG,c.getInt(idColIndex)+" id of element");
             listOfIndex.add(c.getInt(idColIndex));
 
-            arrayOfNotes.add(0, c.getString(titleColIndex));
+            arrayOfNotes.add(0, c.getString(titleColIndex)+" Theme: "+c.getString(themeColIndex));
             adapter.notifyDataSetChanged();
             // получаем значения по номерам столбцов и пишем все в лог
 //            Log.d(LOG_TAG,
@@ -78,17 +73,6 @@ public class MainPageActivity extends AppCompatActivity {
 
     c.close();
         dbHelper.close();
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent myIntent = new Intent(MainPageActivity.class, EditNoteActivity.class);
-//
-//                myIntent.putExtra("test", "hello");
-//                startActivity(myIntent);
-//                Intent intent = new Intent(this,  NewNoteActivity.class)
-//            }
-//
-//        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -113,7 +97,6 @@ public class MainPageActivity extends AppCompatActivity {
 
     public void addNote(View view){
         Intent intent = new Intent(this,  NewNoteActivity.class);
-       // intent.putExtra("","");
         startActivity(intent);
     }
 }
