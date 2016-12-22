@@ -56,7 +56,7 @@ public class DataBase  {
     private static final String CREATE_DATACLASSIFIER_TABLE =
             "CREATE TABLE dataclassifier (" +
                     KEY_DATACLASSIFIER_ID+" integer PRIMARY KEY AUTOINCREMENT," +
-                    KEY_DATACLASSIFIER_IDTHEME+" id_theme integer," +
+
                     KEY_DATACLASSIFIER_THEME+" text," +
                     KEY_DATACLASSIFIER_WORD+" text," +
                     KEY_DATACLASSIFIER_COUNT+" integer" +
@@ -113,6 +113,21 @@ public class DataBase  {
         //)true, Table, from, where, null, null, null, null, null)
       return   DB.query(TABLE_NOTES,null,KEY_NOTES_ID+" = "+id,null,null,null,null);
     }
+
+    public Cursor getAllThemes(){
+
+        return  DB.query(TABLE_THEMES,null,null,null,null,null,null);
+    }
+
+    public void addTheme(String theme){
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_THEMES_THEME,theme);
+        DB.insert(TABLE_THEMES, null, cv);
+    }
+public Cursor getAllWords(){
+   
+    return DB.query(TABLE_DATACLASSIFIER,null,null,null,null,null,null);
+}
     private class DBHelper extends SQLiteOpenHelper {
 
         public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,
