@@ -21,20 +21,7 @@
         android:hint="Print your note"
         android:ems="10"
         android:id="@+id/note"
-        android:layout_weight="0.75" />
-
-    <AutoCompleteTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/newNoteTheme"
-        android:hint="Theme" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewNewNoteThemesChoice"
-        android:layout_weight="0.10" />
+        android:layout_weight="0.90" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="74dp"

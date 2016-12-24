@@ -69,8 +69,13 @@ public class DataBase  {
     }
     public void open() {
      //   Log.d(LOG_TAG,"Open connection");
+
         dbHelper = new DBHelper(mCtx, DATABASE_NAME, null, DATABASE_VERSION);
         DB = dbHelper.getWritableDatabase();
+//        DB.execSQL("DELETE FROM "+TABLE_NOTES);
+//        DB.execSQL("VACUUM");
+//        DB.execSQL("DELETE FROM "+TABLE_DATACLASSIFIER);
+//        DB.execSQL("VACUUM");
     }
     // закрыть подключение
     public void close() {
@@ -95,6 +100,16 @@ public class DataBase  {
         cv.put(KEY_NOTES_THEME, theme);
         DB.insert(TABLE_NOTES, null, cv);
     }
+
+    public void addRec(ContentValues cv) {
+        //  Log.d(LOG_TAG,"Add record to base");
+
+
+        cv.put(KEY_NOTES_DATE, Calendar.getInstance().toString());
+
+        DB.insert(TABLE_NOTES, null, cv);
+    }
+
     public  void updateRec(int id, String title,String text){
         ContentValues cv = new ContentValues();
         //cv.put(KEY_NOTES_ID,id);
@@ -125,9 +140,29 @@ public class DataBase  {
         DB.insert(TABLE_THEMES, null, cv);
     }
 public Cursor getAllWords(){
-   
+
     return DB.query(TABLE_DATACLASSIFIER,null,null,null,null,null,null);
 }
+    public void increaseWordCount(String word, String theme){
+        Cursor c = DB.query(TABLE_DATACLASSIFIER,null,KEY_DATACLASSIFIER_WORD+" = ? ",new String[]{word},null,null,null);
+        if(c.moveToFirst()) {
+            int count = c.getInt(c.getColumnIndex(KEY_DATACLASSIFIER_COUNT));
+            count++;
+            ContentValues cv= new ContentValues();
+            cv.put(KEY_DATACLASSIFIER_COUNT,count);
+            cv.put(KEY_DATACLASSIFIER_THEME,c.getString(c.getColumnIndex(KEY_DATACLASSIFIER_THEME)));
+            cv.put(KEY_DATACLASSIFIER_WORD,word);
+            DB.update(TABLE_DATACLASSIFIER,cv,KEY_DATACLASSIFIER_WORD+" = "+word,null);
+            return;
+        }
+        else{
+            ContentValues cv= new ContentValues();
+            cv.put(KEY_DATACLASSIFIER_COUNT,1);
+            cv.put(KEY_DATACLASSIFIER_THEME,theme);
+            cv.put(KEY_DATACLASSIFIER_WORD,word);
+            DB.update(TABLE_DATACLASSIFIER,cv,KEY_DATACLASSIFIER_WORD+" = "+word,null);
+        }
+    }
     private class DBHelper extends SQLiteOpenHelper {
 
         public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,

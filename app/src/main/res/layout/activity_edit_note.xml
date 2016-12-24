@@ -42,17 +42,6 @@
             app:backgroundTint="?attr/actionModeSplitBackground"
             android:onClick="editNoteDatabase"
             app:rippleColor="?attr/colorBackgroundFloating" />
-
-        <!--<Button-->
-            <!--android:text="ADD"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/floatingActionButton"-->
-
-            <!--android:layout_row="27"-->
-            <!--android:layout_column="1"-->
-            <!--android:layout_weight="0.99" />-->
-
     </LinearLayout>
 
     <GridLayout
