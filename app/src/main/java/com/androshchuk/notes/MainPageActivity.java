@@ -37,7 +37,7 @@ public class MainPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(LOG_TAG, "version " + DataBase.DATABASE_VERSION);
+      //  Log.d(LOG_TAG, "version " + DataBase.DATABASE_VERSION);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

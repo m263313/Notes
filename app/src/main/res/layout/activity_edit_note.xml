@@ -27,10 +27,11 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="380dp"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:text="Your note"
             android:ems="10"
-            android:id="@+id/editNote" />
+            android:id="@+id/editNote"
+            android:singleLine="false" />
 
         <android.support.design.widget.FloatingActionButton
             android:layout_width="70dp"

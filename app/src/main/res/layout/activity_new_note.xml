@@ -16,12 +16,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
 
         android:hint="Print your note"
         android:ems="10"
         android:id="@+id/note"
-        android:layout_weight="0.90" />
+        android:layout_weight="0.90"
+        android:inputType="textMultiLine" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="74dp"

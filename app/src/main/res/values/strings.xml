@@ -1,4 +1,124 @@
 <resources>
     <string name="app_name">Notes</string>
     <string name="action_settings">Settings</string>
+    <string-array name="ignored_words">
+        <item>time </item>
+        <item>person </item>
+ <item>year </item>
+ <item>way </item>
+ <item>day </item>
+    <item> thing </item>
+    <item> man </item>
+    <item> world </item>
+    <item> life </item>
+   <item>  hand </item>
+   <item>  part </item>
+   <item>  child </item>
+   <item>  eye </item>
+   <item>  woman </item>
+   <item>  place </item>
+   <item>  work </item>
+  <item>   week </item>
+  <item>   case </item>
+  <item>   point </item>
+  <item>   government </item>
+   <item>  company </item>
+   <item>  number </item>
+   <item>  group </item>
+   <item>  problem </item>
+        <item>fact </item>
+        <item>   be</item>
+        <item>    have</item>
+        <item>     do</item>
+        <item>     say</item>
+        <item>     get</item>
+        <item>     make</item>
+        <item>     go</item>
+        <item>     know</item>
+        <item>    take</item>
+        <item>    see</item>
+        <item>    come</item>
+        <item>    think</item>
+        <item>    look</item>
+        <item>    want</item>
+        <item>    give</item>
+        <item>     use</item>
+        <item>     find</item>
+        <item>     tell</item>
+        <item>       ask</item>
+        <item>       work</item>
+        <item>       seem</item>
+        <item>       feel</item>
+        <item>     try</item>
+        <item>    leave</item>
+        <item>    call</item>
+        <item>	good	</item>
+        <item>	new	</item>
+        <item>	first	</item>
+        <item>	last	</item>
+        <item>	long	</item>
+        <item>	great	</item>
+        <item>	little	</item>
+        <item>	own	</item>
+        <item>	other	</item>
+        <item>	old	</item>
+        <item>	right	</item>
+        <item>	big	</item>
+        <item>	high	</item>
+        <item>	different	</item>
+        <item>	small	</item>
+        <item>	large	</item>
+        <item>	next	</item>
+        <item>	early	</item>
+        <item>	young	</item>
+        <item>	important	</item>
+        <item>	few	</item>
+        <item>	public	</item>
+        <item>	bad	</item>
+        <item>	same	</item>
+        <item>	able	</item>
+        <item>	to	</item>
+        <item>	of	</item>
+        <item>	in	</item>
+        <item>	for	</item>
+        <item>	on	</item>
+        <item>	with	</item>
+        <item>	at	</item>
+        <item>	by	</item>
+        <item>	from	</item>
+        <item>	up	</item>
+        <item>	about	</item>
+        <item>	into	</item>
+        <item>	over	</item>
+        <item>	after	</item>
+        <item>	beneath	</item>
+        <item>	under	</item>
+        <item>	above	</item>
+        <item>	the	</item>
+        <item>	and	</item>
+        <item>	a	</item>
+        <item>	that	</item>
+        <item>	I	</item>
+        <item>	it	</item>
+        <item>	not	</item>
+        <item>	he	</item>
+        <item>	as	</item>
+        <item>	you	</item>
+        <item>	this	</item>
+        <item>	but	</item>
+        <item>	his	</item>
+        <item>	they	</item>
+        <item>	her	</item>
+        <item>	she	</item>
+        <item>	or	</item>
+        <item>	an	</item>
+        <item>	will	</item>
+        <item>	my	</item>
+        <item>	one	</item>
+        <item>	all	</item>
+        <item>	would	</item>
+        <item>	there	</item>
+        <item>	their	</item>
+
+    </string-array>
 </resources>

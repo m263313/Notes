@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,17 +26,23 @@ public class ChooseThemePageActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     List<Integer> listOfIndex;
     final String LOG_TAG = "myLogs";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.choose_theme_page);
-    listOfIndex= new ArrayList<Integer>();
+         listOfIndex= new ArrayList<Integer>();
         List arrayOfThemes = new ArrayList<String>();
         mList = new ArrayList<String>();
         //open database connection
         dbHelper = new DataBase(this);
         dbHelper.open();
+
         cv = getIntent().getExtras().getParcelable("ContentValues");
+        TextView titleOnLayout = (TextView) findViewById(R.id.titleThemeChoose);
+        titleOnLayout.setText((String) cv.get(DataBase.KEY_NOTES_THEME));
+        //String theme = editable.toString().trim();
         mList.add("New theme");
         //get themes list
         Cursor c = dbHelper.getAllThemes();
@@ -66,7 +73,7 @@ public class ChooseThemePageActivity extends AppCompatActivity {
                 if (position == 0)
                     setContentView(R.layout.input_theme);
                 else {
-                    cv.put(DataBase.KEY_NOTES_THEME, mList.get(position + 1));
+                    cv.put(DataBase.KEY_NOTES_THEME, mList.get(position ));
                     dbHelper.addRec(cv);
                     Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
                     startActivity(intent);
@@ -98,6 +105,7 @@ public class ChooseThemePageActivity extends AppCompatActivity {
             dbHelper.open();
             dbHelper.delTheme(mList.get(acmi.position));
             mList.remove(acmi.position);
+            //Be careful:
             listOfIndex.remove(listOfIndex.get(listOfIndex.size() - acmi.position));
 
             dbHelper.close();

@@ -7,14 +7,34 @@
     android:weightSum="1">
 
 
-    <TextView
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/titleThemeChoose"
-        android:elevation="2dp"
-        tools:text="Choose your theme"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:text="Choose your theme" />
+        android:layout_height="73dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="66dp"
+            android:layout_height="51dp"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@android:drawable/ic_menu_save"
+            android:id="@+id/floatingActionButton"
+            app:backgroundTint="?attr/actionModeSplitBackground" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/titleThemeChoose"
+            android:elevation="2dp"
+            tools:text="Choose your theme"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:text="Choose your theme"
+            android:fontFamily="sans-serif"
+            android:textSize="30sp"
+            android:lineSpacingExtra="8sp"
+            android:textAlignment="center"
+            android:layout_weight="1" />
+    </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
