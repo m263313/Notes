@@ -163,6 +163,19 @@ public Cursor getAllWords(){
             DB.update(TABLE_DATACLASSIFIER,cv,KEY_DATACLASSIFIER_WORD+" = "+word,null);
         }
     }
+        public void delTheme(String theme){
+          //  if(theme.length()!=0) {
+                int count = DB.delete(TABLE_THEMES, KEY_THEMES_THEME + " = '" + theme+"'", null);
+                count = DB.delete(TABLE_DATACLASSIFIER, KEY_DATACLASSIFIER_THEME + " = '" + theme+"'", null);
+
+//            }
+//            else {
+//                DB.execSQL("delete from" + TABLE_THEMES + "where " + KEY_THEMES_THEME + " = ''");
+//                DB.execSQL("delete from"+TABLE_DATACLASSIFIER+"where "+KEY_DATACLASSIFIER_THEME+" = ''");
+//
+//            }
+
+    }
     private class DBHelper extends SQLiteOpenHelper {
 
         public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,

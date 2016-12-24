@@ -34,6 +34,7 @@ public class MainPageActivity extends AppCompatActivity {
       List<String> arrayOfNotes;
 
     ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(LOG_TAG, "version " + DataBase.DATABASE_VERSION);
@@ -102,7 +103,7 @@ public class MainPageActivity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        menu.add("Удалить запись");
+        menu.add("Delete note");
 
     }
 
@@ -111,11 +112,13 @@ public class MainPageActivity extends AppCompatActivity {
 
             // получаем инфу о пункте списка
             AdapterView.AdapterContextMenuInfo acmi = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-            // удаляем Map из коллекции, используя позицию пункта в списке
-            arrayOfNotes.remove(acmi.position);
         dbHelper.open();
-            dbHelper.delRec(listOfIndex.size() - acmi.position - 1);
+        Log.d(LOG_TAG,   listOfIndex.get(listOfIndex.size() - acmi.position - 1)+" Id of element to delete");
+            dbHelper.delRec(listOfIndex.get(listOfIndex.size() - acmi.position - 1));
         dbHelper.close();
+        listOfIndex.remove(listOfIndex.get(listOfIndex.size() - acmi.position - 1));
+        // удаляем Map из коллекции, используя позицию пункта в списке
+        arrayOfNotes.remove(acmi.position);
             // уведомляем, что данные изменились
             adapter.notifyDataSetChanged();
            // return true;
