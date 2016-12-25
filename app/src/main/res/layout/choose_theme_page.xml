@@ -14,7 +14,7 @@
 
         <android.support.design.widget.FloatingActionButton
             android:layout_width="66dp"
-            android:layout_height="51dp"
+            android:layout_height="61dp"
             android:clickable="true"
             app:fabSize="mini"
             app:srcCompat="@android:drawable/ic_menu_save"

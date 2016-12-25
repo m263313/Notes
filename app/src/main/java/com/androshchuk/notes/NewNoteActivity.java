@@ -34,6 +34,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,7 +105,7 @@ public class NewNoteActivity extends Activity {
 
         for(String word :textToPredict){
             word.toLowerCase();
-            if(!wordsToIgnore.contains(word) && !finalWords.contains(word))
+            if(!wordsToIgnore.contains(word) )
                 finalWords.add(word);
         }
         ArrayList<String> uniqueWords = new ArrayList<String>();
@@ -119,7 +120,7 @@ public class NewNoteActivity extends Activity {
 
         cv.put(DataBase.KEY_NOTES_THEME,bayes.classify(finalWords).getCategory());
 
-
+        Collection listForTest=((BayesClassifier<String, String>) bayes).classifyDetailed(Arrays.asList(textToPredict));
         Intent intent = new Intent(this,  ChooseThemePageActivity.class);
         intent.putExtra("ContentValues", cv);
         Bundle bundle = new Bundle();
