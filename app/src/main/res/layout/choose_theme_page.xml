@@ -10,13 +10,13 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="73dp">
+        android:layout_height="90dp">
 
         <android.support.design.widget.FloatingActionButton
-            android:layout_width="66dp"
-            android:layout_height="61dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:clickable="true"
-            app:fabSize="mini"
+            app:fabSize="normal"
             app:srcCompat="@android:drawable/ic_menu_save"
             android:id="@+id/saveNotePredicted"
             app:backgroundTint="?attr/actionModeSplitBackground"
@@ -35,7 +35,8 @@
             android:textSize="30sp"
             android:lineSpacingExtra="8sp"
             android:textAlignment="center"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:paddingTop="10dp" />
     </LinearLayout>
 
     <ListView

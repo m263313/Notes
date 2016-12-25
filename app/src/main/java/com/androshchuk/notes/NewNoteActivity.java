@@ -115,7 +115,7 @@ public class NewNoteActivity extends Activity {
         }
         dbHelper.open();
 
-       bayes.learn("Buy",Arrays.asList(new String[]{"buy","Buy"}));
+       bayes.learn("Unknown",Arrays.asList(new String[]{}));
 
 
         cv.put(DataBase.KEY_NOTES_THEME,bayes.classify(finalWords).getCategory());

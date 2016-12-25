@@ -28,12 +28,12 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:onClick="addNoteDatabase"
-        app:fabSize="mini"
         app:srcCompat="@android:drawable/ic_menu_save"
         android:id="@+id/addNoteButton"
         android:layout_weight="0.16"
         app:backgroundTint="?attr/actionModeSplitBackground"
-        app:rippleColor="?attr/colorBackgroundFloating" />
+        app:rippleColor="?attr/colorBackgroundFloating"
+        app:fabSize="normal" />
 
     <!--<Button-->
         <!--android:text="ADD"-->

@@ -44,7 +44,7 @@ public class ChooseThemePageActivity extends AppCompatActivity {
 
         cv = getIntent().getExtras().getParcelable("ContentValues");
         TextView titleOnLayout = (TextView) findViewById(R.id.titleThemeChoose);
-        titleOnLayout.setText((String) cv.get(DataBase.KEY_NOTES_THEME));
+        titleOnLayout.setText("Your theme: "+(String) cv.get(DataBase.KEY_NOTES_THEME));
         //String theme = editable.toString().trim();
         mList.add("New theme");
         //get themes list
