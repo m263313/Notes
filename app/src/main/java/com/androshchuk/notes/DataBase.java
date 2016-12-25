@@ -176,6 +176,17 @@ public Cursor getAllWords(){
 //            }
 
     }
+    public void addWordsToTheme(String[] words,String theme){
+        int count=1;
+        ContentValues cv = new ContentValues();
+        cv.put(DataBase.KEY_DATACLASSIFIER_THEME,theme);
+        cv.put(DataBase.KEY_DATACLASSIFIER_COUNT,count);
+        for(String word : words) {
+            cv.put(DataBase.KEY_DATACLASSIFIER_WORD,word.toLowerCase());
+
+            DB.insert(TABLE_DATACLASSIFIER, null, cv);
+        }
+    }
     private class DBHelper extends SQLiteOpenHelper {
 
         public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,

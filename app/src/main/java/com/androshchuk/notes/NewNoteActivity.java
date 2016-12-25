@@ -27,6 +27,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -43,13 +44,14 @@ import static com.androshchuk.notes.R.id.noteTitle;
 public class NewNoteActivity extends Activity {
     DataBase dbHelper;
     final String LOG_TAG = "myLogs";
-
+    Map<String,String> knownWords;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_note);
         Intent intent = getIntent();
          dbHelper=new DataBase(this);
+        knownWords=new HashMap<String, String>();
     }
     //Action after pressing button
     public void addNoteDatabase(View view){
@@ -66,10 +68,11 @@ public class NewNoteActivity extends Activity {
 
         if(cursorWords.moveToFirst()){
         do{
-            List<String> tempWords =new ArrayList<String>();
-            for(int i = 0; i<tempWords.size();i++)
-                tempWords.add(cursorWords.getString(wordColIndex));
-         bayes.learn(cursorWords.getString(themeColIndex),tempWords);
+           // List<String> tempWords =new ArrayList<String>();
+            //for(int i = 0; i<tempWords.size();i++)
+             //   tempWords.add(cursorWords.getString(wordColIndex));
+            knownWords.put(cursorWords.getString(wordColIndex),cursorWords.getString(themeColIndex));
+         bayes.learn(cursorWords.getString(themeColIndex),Arrays.asList(new String[]{cursorWords.getString(wordColIndex)}));
         }while (cursorWords.moveToNext());
 
         }
@@ -96,14 +99,22 @@ public class NewNoteActivity extends Activity {
         List<String> wordsToIgnore =  Arrays.asList(res.getStringArray(R.array.ignored_words));
 
         List<String> finalWords = new ArrayList<String>();
+         knownWords= new HashMap<String,String>();
+
 
         for(String word :textToPredict){
             word.toLowerCase();
             if(!wordsToIgnore.contains(word) && !finalWords.contains(word))
                 finalWords.add(word);
         }
+        ArrayList<String> uniqueWords = new ArrayList<String>();
+        for(String word : finalWords){
+        if(!knownWords.containsValue(word))
+            uniqueWords.add(word);
+        }
+        dbHelper.open();
 
-        bayes.learn("Buy",Arrays.asList(new String[]{"buy","Buy"}));
+       bayes.learn("Buy",Arrays.asList(new String[]{"buy","Buy"}));
 
 
         cv.put(DataBase.KEY_NOTES_THEME,bayes.classify(finalWords).getCategory());
@@ -111,6 +122,14 @@ public class NewNoteActivity extends Activity {
 
         Intent intent = new Intent(this,  ChooseThemePageActivity.class);
         intent.putExtra("ContentValues", cv);
+        Bundle bundle = new Bundle();
+        String[] arrayToPass = new String[uniqueWords.size()];
+        for(int i=0;i<uniqueWords.size();i++)
+        arrayToPass[i]=uniqueWords.get(i);
+        bundle.putStringArray("finalWords",arrayToPass);
+       // bundle.putSerializable("finalWords",uniqueWords.toArray());
+        intent.putExtras(bundle);
+     //   intent.putExtra("finalWords",uniqueWords.toArray());
         startActivity(intent);
 
 

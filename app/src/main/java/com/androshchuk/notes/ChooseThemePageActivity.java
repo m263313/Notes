@@ -26,7 +26,7 @@ public class ChooseThemePageActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     List<Integer> listOfIndex;
     final String LOG_TAG = "myLogs";
-
+    String[] finalWords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,9 @@ public class ChooseThemePageActivity extends AppCompatActivity {
          listOfIndex= new ArrayList<Integer>();
         List arrayOfThemes = new ArrayList<String>();
         mList = new ArrayList<String>();
+        //finalWords=getIntent().getExtras().getParcelable("finalWords");
+        Bundle bundle = getIntent().getExtras();
+        finalWords =(String[]) bundle.getStringArray("finalWords");
         //open database connection
         dbHelper = new DataBase(this);
         dbHelper.open();
@@ -75,6 +78,7 @@ public class ChooseThemePageActivity extends AppCompatActivity {
                 else {
                     cv.put(DataBase.KEY_NOTES_THEME, mList.get(position ));
                     dbHelper.addRec(cv);
+                    dbHelper.addWordsToTheme(finalWords,mList.get(position));
                     Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
                     startActivity(intent);
                 }
@@ -127,8 +131,14 @@ public class ChooseThemePageActivity extends AppCompatActivity {
 
     cv.put(DataBase.KEY_NOTES_THEME,theme);
         dbHelper.addRec(cv);
+        dbHelper.addWordsToTheme(finalWords,theme);
         Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
         startActivity(intent);
         dbHelper.close();
+    }
+    public void saveNotePredicted(View view){
+        dbHelper.addRec(cv);
+        Intent intent = new Intent(getApplicationContext(), MainPageActivity.class);
+        startActivity(intent);
     }
 }

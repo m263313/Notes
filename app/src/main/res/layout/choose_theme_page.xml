@@ -18,8 +18,10 @@
             android:clickable="true"
             app:fabSize="mini"
             app:srcCompat="@android:drawable/ic_menu_save"
-            android:id="@+id/floatingActionButton"
-            app:backgroundTint="?attr/actionModeSplitBackground" />
+            android:id="@+id/saveNotePredicted"
+            app:backgroundTint="?attr/actionModeSplitBackground"
+            android:onClick="saveNotePredicted"
+            />
 
         <TextView
             android:layout_width="match_parent"
