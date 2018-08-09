@@ -51,3 +51,7 @@ Temporary Items
 .gradle/
 .gradle/2.14.1/taskArtifacts/taskArtifacts.bin
 build/intermediates/dex-cache/cache.xml
+.idea/*
+/build/*
+local.properties
+*.iml
